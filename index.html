@@ -4,39 +4,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto-Ritanren</title>
-    <link rel="stylesheet" href="style.css">
+    <title>加密日坛人</title>
     <link rel="icon" type="image/png" href="./favicon.png?v=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;600&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <body>
-    <video class="bg-video" autoplay loop muted playsinline>
-        <source src="background.mp4" type="video/mp4">
-    </video>
 
-    <div class="overlay"></div>
+<video class="bg-video" autoplay loop muted playsinline id="bgVideo">
+    <source src="background.mp4" type="video/mp4">
+</video>
 
-    <div class="card">
-        <img src="avatar.jpg" alt="Avatar" class="avatar">
-        <h1>Crypto-Ritanren</h1>
-        <p>Python / PHP / Siege 🎮</p>
+<main class="zen-container" id="zenContainer">
+    <div class="zen-card" id="zenCard">
+        <!-- Glass Spotlight Follower (Liquid Glass Reflection) -->
+        <div class="glass-spotlight" id="glassSpotlight" aria-hidden="true"></div>
 
-        <div class="socials">
-            <a href="https://discord.com/users/234240674763898880" target="_blak" class="social-link">
-                <i class="fa-brands fa-discord"></i>
-                Discord
-            </a>
-            <a href="https://steamcommunity.com/id/xzorat/" target="_blank" class="social-link">
-                <i class="fa-brands fa-steam"></i>
-                Steam
-            </a>
-            <a href="https://github.com/crypto-ritanec" target="_blank" class="social-link">
-                <i class="fa-brands fa-github"></i>
-                GitHub
-            </a>
+        <!-- Traditional Calligraphy Watermark -->
+        <div class="zen-watermark" aria-hidden="true">加密山水</div>
+
+        <!-- Header: Cinnabar Seal, Beijing Live Clock & Zen Sound -->
+        <header class="zen-header">
+            <div class="zen-brand">
+                <span class="zen-seal">山水</span>
+                <div class="zen-brand-text">
+                    <span class="brand-title">SHAN SHUI</span>
+                    <span class="brand-coords">40°25'29.9"N 116°34'00.0"E</span>
+                </div>
+            </div>
+
+            <!-- Real-time Beijing Clock (UTC+8) -->
+            <div class="zen-clock-pill">
+                <span class="clock-pulse"></span>
+                <span class="clock-val" id="beijingClock">--:--:-- CST</span>
+            </div>
+
+            <!-- Sound Switcher -->
+            <button type="button" class="zen-sound-btn" id="soundBtn" title="Атмосферный дзен-звук">
+                <i class="fa-solid fa-wind" id="soundIcon"></i>
+                <span id="soundText">SOUND</span>
+            </button>
+        </header>
+
+        <!-- Profile Identity -->
+        <div class="zen-profile">
+            <div class="avatar-frame">
+                <img src="avatar.jpg" alt="Crypto-Ritanren" class="zen-avatar">
+                <div class="avatar-ring"></div>
+            </div>
+            <h1 class="zen-name">Crypto-Ritanren</h1>
+            <div class="zen-tagline">
+                    <span class="zen-pill" data-stack="python" title="Python">
+                        <i class="fa-brands fa-python"></i>
+                        <span>Python</span>
+                    </span>
+                <span class="zen-pill" data-stack="php" title="PHP">
+                        <i class="fa-brands fa-php"></i>
+                        <span>PHP</span>
+                    </span>
+                <span class="zen-pill" data-stack="siege" title="Rainbow Six Siege">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Siege</span>
+                    </span>
+            </div>
         </div>
+
+        <!-- Minimalist Frosted Navigation Tabs -->
+        <nav class="zen-nav" role="tablist">
+            <button type="button" class="zen-tab active" data-tab="links" role="tab">
+                <i class="fa-regular fa-compass"></i>
+                <span>LINKS</span>
+            </button>
+            <button type="button" class="zen-tab" data-tab="expedition" role="tab">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <span>EXPEDITION</span>
+            </button>
+            <button type="button" class="zen-tab" data-tab="stack" role="tab">
+                <i class="fa-solid fa-code"></i>
+                <span>STACK</span>
+            </button>
+        </nav>
+
+        <!-- Tab Viewport -->
+        <div class="zen-viewport">
+            <!-- TAB 1: Links (Apple/Nothing Minimalist Glass Pills) -->
+            <section class="tab-pane active" id="pane-links" role="tabpanel">
+                <div class="zen-links">
+                    <a href="https://discord.com/users/234240674763898880" target="_blank" class="zen-link"
+                       data-link="discord">
+                        <div class="link-left">
+                            <div class="link-icon-box discord-box">
+                                <i class="fa-brands fa-discord"></i>
+                            </div>
+                            <div class="link-info">
+                                <span class="link-label">Discord</span>
+                                <span class="link-meta"></span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right link-chevron"></i>
+                    </a>
+
+                    <a href="https://steamcommunity.com/id/xzorat/" target="_blank" class="zen-link"
+                       data-link="steam">
+                        <div class="link-left">
+                            <div class="link-icon-box steam-box">
+                                <i class="fa-brands fa-steam"></i>
+                            </div>
+                            <div class="link-info">
+                                <span class="link-label">Steam</span>
+                                <span class="link-meta"></span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right link-chevron"></i>
+                    </a>
+
+                    <a href="https://github.com/crypto-ritanec" target="_blank" class="zen-link" data-link="github">
+                        <div class="link-left">
+                            <div class="link-icon-box github-box">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <div class="link-info">
+                                <span class="link-label">GitHub</span>
+                                <span class="link-meta"></span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right link-chevron"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- TAB 2: Expedition Telemetry & China Travel Notes -->
+            <section class="tab-pane" id="pane-expedition" role="tabpanel">
+                <div class="expedition-card">
+                    <div class="expedition-top">
+                        <span class="exp-tag"><i class="fa-solid fa-camera"></i> TRAVEL FOOTAGE</span>
+
+                    </div>
+                    <p class="exp-story">
+                        На фоне — видео из Китая: от парящих туманных пиков Мутяньюй до величественного Града
+                        Пекина.
+                    </p>
+                    <div class="exp-metrics">
+                        <div class="exp-metric-box">
+                            <span class="m-label">ХРЕБТЫ И ГОРОДА</span>
+                            <span class="m-val">Мутяньюй • Пекин</span>
+                        </div>
+                        <div class="exp-metric-box">
+                            <span class="m-label">АТМОСФЕРА</span>
+                            <span class="m-val">История, горы и 5G</span>
+                        </div>
+                        <div class="exp-metric-box">
+                            <span class="m-label">ЭСТЕТИКА</span>
+                            <span class="m-val">Шань-шуй // 山水</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: Tech Stack & Arsenal (Interactive Cyber Terminal) -->
+            <section class="tab-pane" id="pane-stack" role="tabpanel">
+                <div class="zen-terminal" id="zenTerminal">
+                    <!-- Terminal Window Titlebar -->
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="term-dot term-dot-red" id="termDotRed" title="Reset (Перезапуск)"></span>
+                            <span class="term-dot term-dot-yellow" id="termDotYellow"
+                                  title="Clear (Очистить)"></span>
+                            <span class="term-dot term-dot-green" id="termDotGreen" title="Neofetch (Инфо)"></span>
+                        </div>
+                        <div class="terminal-title">
+                            <i class="fa-solid fa-terminal"></i>
+                            <span>ritanren@zen:~/stack</span>
+                        </div>
+                        <span class="terminal-badge">zsh</span>
+                    </div>
+
+                    <!-- Terminal Scrollable Output Area -->
+                    <div class="terminal-body" id="termBody">
+                        <div class="term-welcome">
+                            <span class="term-dim">// Crypto Shan Shui Terminal</span><br>
+                            <span class="term-dim">// Type a command or tap quick buttons below:</span>
+                        </div>
+
+                        <div class="term-entry">
+                            <div class="term-line-cmd">
+                                <span class="cmd-p">ritanren@zen:~$</span>
+                                <span class="cmd-t">stack --overview</span>
+                            </div>
+                            <div class="term-line-res">
+                                <div class="term-tech-item">
+                                    <span class="term-tech-badge term-badge-py">Python</span>
+                                    <span>Автоматизация и скрипты</span>
+                                </div>
+                                <div class="term-tech-item">
+                                    <span class="term-tech-badge term-badge-php">PHP</span>
+                                    <span>Веб-бэкенд</span>
+                                </div>
+                                <div class="term-tech-item">
+                                    <span class="term-tech-badge term-badge-siege">Siege</span>
+                                    <span>3к часов</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Action Chips for mobile and fast click -->
+                    <div class="terminal-chips">
+                        <button type="button" class="term-chip" data-cmd="help">help</button>
+
+                        <button type="button" class="term-chip" data-cmd="clear">clear</button>
+                    </div>
+
+                    <!-- Terminal Input Bar -->
+                    <form class="terminal-input-row" id="termForm" onsubmit="return false;">
+                        <span class="term-prompt-symbol">ritanren@zen:~$</span>
+                        <input type="text" class="term-input" id="termInput" autocomplete="off" spellcheck="false"
+                               placeholder="help, stack, python, neofetch...">
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer: Traditional Proverb & Live Status -->
+        <footer class="zen-footer">
+            <div class="zen-proverb">「 行万里路，读万卷书 」</div>
+            <div class="zen-subfooter">
+                <span> </span>
+                <span class="sub-sep"> </span>
+                <span> </span>
+            </div>
+        </footer>
     </div>
+</main>
+
+<!-- Interactive Logic: Tibetan Harmonics, Live Beijing Time, Tab Physics & 3D Tilt -->
+<script>
+    (function () {
+        'use strict';
+
+        // --- 1. Procedural Zen Harmonics (Tibetan Singing Bowl & Glass Chimes) ---
+        let audioCtx = null;
+        let isMuted = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) {
+                    audioCtx = new AudioContext();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // Synthesizes a crystalline harmonic resonance
+        function playChime(freq = 528, duration = 1.4) {
+            if (isMuted) return;
+            initAudio();
+            if (!audioCtx) return;
+
+            const now = audioCtx.currentTime;
+            const freqs = [freq, freq * 1.503, freq * 2.75];
+            const gains = [0.08, 0.03, 0.015];
+
+            freqs.forEach((f, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(f, now);
+
+                gain.gain.setValueAtTime(gains[i], now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(now);
+                osc.stop(now + duration);
+            });
+        }
+
+        // Sound Toggle Button
+        const soundBtn = document.getElementById('soundBtn');
+        const soundIcon = document.getElementById('soundIcon');
+        const soundText = document.getElementById('soundText');
+
+        if (soundBtn) {
+            soundBtn.addEventListener('click', () => {
+                initAudio();
+                isMuted = !isMuted;
+                if (isMuted) {
+                    soundIcon.className = 'fa-solid fa-volume-xmark';
+                    soundText.textContent = 'MUTED';
+                    soundBtn.classList.add('muted');
+                } else {
+                    soundIcon.className = 'fa-solid fa-wind';
+                    soundText.textContent = 'SOUND';
+                    soundBtn.classList.remove('muted');
+                    playChime(432, 1.8); // 432Hz Om resonance
+                }
+            });
+        }
+
+        // --- 2. Live Beijing Clock (UTC+8) ---
+        function updateClock() {
+            const clockEl = document.getElementById('beijingClock');
+            if (!clockEl) return;
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const bjTime = new Date(utc + (3600000 * 8));
+
+            const hrs = String(bjTime.getHours()).padStart(2, '0');
+            const mins = String(bjTime.getMinutes()).padStart(2, '0');
+            const secs = String(bjTime.getSeconds()).padStart(2, '0');
+            clockEl.textContent = `${hrs}:${mins}:${secs} CST`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // --- 3. Interactive Zen Tabs ---
+        const tabButtons = document.querySelectorAll('.zen-tab');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => playChime(700, 0.4));
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+                if (btn.classList.contains('active')) return;
+
+                playChime(528, 1.2);
+
+                tabButtons.forEach(b => b.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
+
+                btn.classList.add('active');
+                const targetPane = document.getElementById('pane-' + targetTab);
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                }
+            });
+        });
+
+        // --- Interactive Cyber Terminal Logic ---
+        const termBody = document.getElementById('termBody');
+        const termForm = document.getElementById('termForm');
+        const termInput = document.getElementById('termInput');
+        const termDotRed = document.getElementById('termDotRed');
+        const termDotYellow = document.getElementById('termDotYellow');
+        const termDotGreen = document.getElementById('termDotGreen');
+
+        const cmdHistory = [];
+        let historyIdx = -1;
+
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        const TERMINAL_COMMANDS = {
+            help: () => `
+<span class="term-cyan">Доступные команды:</span>
+<span class="term-green">stack</span>     - Полный технический арсенал
+<span class="term-green">python</span>    - Подробно о Python-стеке
+<span class="term-green">php</span>       - Подробно о PHP-стеке
+<span class="term-green">siege</span>     - Профиль Rainbow Six Siege
+<span class="term-green">neofetch</span>  - Телеметрия системы и эстетики
+<span class="term-green">whoami</span>    - Информация о профиле
+<span class="term-green">links</span>     - Контакты и каналы связи
+<span class="term-green">date</span>      - Текущее время (Пекин UTC+8)
+<span class="term-green">clear</span>     - Очистить вывод терминала`,
+
+            stack: () => `
+<div class="term-tech-item"><span class="term-tech-badge term-badge-py">Python</span> <span>Automation • Data Tools</span></div>
+<div class="term-tech-item"><span class="term-tech-badge term-badge-php">PHP</span> <span>Backend • Yii2</span></div>
+<div class="term-tech-item"><span class="term-tech-badge term-badge-siege">Siege</span> <span>Low FPS • high KD</span></div>`,
+
+            python: () => `
+<span class="term-cyan">[Python]</span>
+• <b>Направления:</b> Обработка данных, автоматизация, try в tg ботов
+• <b>Библиотеки:</b> pip install
+• <b>Статус:</b> <span class="term-green">Active</span>`,
+
+            php: () => `
+<span class="term-cyan">PHP</span>
+• <b>Направления:</b> Веб-бэкенд, интеграции сервисов
+• <b>Статус:</b> <span class="term-green">Active</span>`,
+
+            siege: () => `
+<span class="term-cyan">Rainbow Six Siege</span>
+• <b>Дисциплина:</b> присутствует
+• <b>Профиль:</b> тайминги и тактика, знание геометрии и спотов
+• <b>Платформа:</b> PC`,
+
+            neofetch: () => `
+<span class="term-cyan">    /\\      </span>  <span class="term-green">ritanren@zen-shanshui</span>
+<span class="term-cyan">   /  \\     </span>  --------------------
+<span class="term-cyan">  /\\   \\    </span>  <span class="term-dim">OS:</span> Shan Shui Glass (x86_64)
+<span class="term-cyan"> /  \\  /\\   </span>  <span class="term-dim">Host:</span> Github Pages • Ritan park
+<span class="term-cyan">/____\\/  \\  </span>  <span class="term-dim">Shell:</span> zen-sh v1.0
+<span class="term-cyan">      \\__/  </span>  <span class="term-dim">Stack:</span> Python • PHP • R6`,
+
+            whoami: () => `биохакер и вайбкодер`,
+
+            links: () => `
+• Discord: <a href="https://discord.com/users/234240674763898880" target="_blank" class="term-link">discord.com/users/234240674763898880</a>
+• Steam:   <a href="https://steamcommunity.com/id/xzorat/" target="_blank" class="term-link">steamcommunity.com/id/xzorat/</a>
+• GitHub:  <a href="https://github.com/crypto-ritanec" target="_blank" class="term-link">github.com/crypto-ritanec</a>`,
+
+            date: () => {
+                const now = new Date();
+                const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+                const bjTime = new Date(utc + (3600000 * 8));
+                return `Beijing CST (UTC+8): ${bjTime.toLocaleTimeString()} | ${bjTime.toLocaleDateString()}`;
+            },
+
+            sudo: () => `<span class="term-red">ritanren is not in the sudoers file. This incident will be reported.</span>`,
+
+            matrix: () => `<span class="term-green">Wake up, Neo... The Matrix has you. Follow the white rabbit.</span>`
+        };
+
+        function resetTerminal() {
+            playChime(528, 0.8);
+            if (!termBody) return;
+            termBody.innerHTML = `
+                <div class="term-welcome">
+                    <span class="term-dim">// Shan Shui Cyber Terminal v2.4</span><br>
+                    <span class="term-dim">// Type a command or tap quick buttons below:</span>
+                </div>
+                <div class="term-entry">
+                    <div class="term-line-cmd">
+                        <span class="cmd-p">ritanren@zen:~$</span>
+                        <span class="cmd-t">stack --overview</span>
+                    </div>
+                </div>`;
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function executeTerminalCommand(rawCmd) {
+            if (!termBody) return;
+            const cmd = rawCmd.trim();
+            if (!cmd) return;
+
+            cmdHistory.push(cmd);
+            historyIdx = cmdHistory.length;
+
+            const lower = cmd.toLowerCase();
+            playChime(720, 0.35);
+
+            if (lower === 'clear') {
+                termBody.innerHTML = '<div class="term-welcome"><span class="term-dim">// Terminal cleared. Type "help" for commands.</span></div>';
+                return;
+            }
+
+            const entry = document.createElement('div');
+            entry.className = 'term-entry';
+
+            const cmdLine = document.createElement('div');
+            cmdLine.className = 'term-line-cmd';
+            cmdLine.innerHTML = `<span class="cmd-p">ritanren@zen:~$</span> <span class="cmd-t">${escapeHtml(cmd)}</span>`;
+            entry.appendChild(cmdLine);
+
+            const resLine = document.createElement('div');
+            resLine.className = 'term-line-res';
+
+            if (TERMINAL_COMMANDS[lower]) {
+                resLine.innerHTML = typeof TERMINAL_COMMANDS[lower] === 'function' ? TERMINAL_COMMANDS[lower]() : TERMINAL_COMMANDS[lower];
+            } else {
+                resLine.innerHTML = `<span class="term-red">zsh: command not found: ${escapeHtml(cmd)}</span>. <span class="term-dim">Введите <span class="term-cyan">help</span> для списка команд.</span>`;
+            }
+
+            entry.appendChild(resLine);
+            termBody.appendChild(entry);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        if (termForm && termInput) {
+            termForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const val = termInput.value;
+                termInput.value = '';
+                executeTerminalCommand(val);
+            });
+
+            termInput.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (cmdHistory.length > 0 && historyIdx > 0) {
+                        historyIdx--;
+                        termInput.value = cmdHistory[historyIdx];
+                    }
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (historyIdx < cmdHistory.length - 1) {
+                        historyIdx++;
+                        termInput.value = cmdHistory[historyIdx];
+                    } else {
+                        historyIdx = cmdHistory.length;
+                        termInput.value = '';
+                    }
+                }
+            });
+        }
+
+        // Terminal Window Dot Actions
+        if (termDotRed) termDotRed.addEventListener('click', resetTerminal);
+        if (termDotYellow) termDotYellow.addEventListener('click', () => executeTerminalCommand('clear'));
+        if (termDotGreen) termDotGreen.addEventListener('click', () => executeTerminalCommand('neofetch'));
+
+        // Quick Action Chips
+        document.querySelectorAll('.term-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const cmd = chip.getAttribute('data-cmd');
+                if (cmd) {
+                    executeTerminalCommand(cmd);
+                    if (termInput) termInput.focus();
+                }
+            });
+        });
+
+        // Chimes on Links
+        document.querySelectorAll('.zen-link').forEach((el, idx) => {
+            el.addEventListener('mouseenter', () => {
+                playChime(600 + idx * 80, 0.7);
+            });
+            el.addEventListener('click', () => {
+                playChime(880, 1.4);
+            });
+        });
+
+        // Interactive Tech Pills: activates Stack tab and executes command in Terminal
+        document.querySelectorAll('.zen-pill').forEach((pill, idx) => {
+            pill.addEventListener('mouseenter', () => {
+                playChime(620 + idx * 70, 0.45);
+            });
+            pill.addEventListener('click', () => {
+                playChime(820, 1.2);
+                const stackTab = document.querySelector('.zen-tab[data-tab="stack"]');
+                if (stackTab) {
+                    stackTab.click();
+                    const stackKey = pill.getAttribute('data-stack');
+                    if (stackKey) {
+                        setTimeout(() => {
+                            executeTerminalCommand(stackKey);
+                        }, 200);
+                    }
+                }
+            });
+        });
+
+        // --- 4. 3D Tilt & Glass Spotlight Physics ---
+        const container = document.getElementById('zenContainer');
+        const card = document.getElementById('zenCard');
+        const spotlight = document.getElementById('glassSpotlight');
+
+        if (container && card && window.matchMedia('(pointer: fine)').matches) {
+            let mouseX = 0;
+            let mouseY = 0;
+            let curX = 0;
+            let curY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                mouseX = (e.clientX - centerX) / (window.innerWidth / 2);
+                mouseY = (e.clientY - centerY) / (window.innerHeight / 2);
+
+                const localX = e.clientX - rect.left;
+                const localY = e.clientY - rect.top;
+                if (spotlight) {
+                    spotlight.style.opacity = '1';
+                    spotlight.style.transform = `translate(${localX - 160}px, ${localY - 160}px)`;
+                }
+            });
+
+            function animatePhysics() {
+                curX += (mouseX - curX) * 0.07;
+                curY += (mouseY - curY) * 0.07;
+
+                const rotY = curX * 6.5;
+                const rotX = -curY * 6.5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+                requestAnimationFrame(animatePhysics);
+            }
+            animatePhysics();
+
+            document.addEventListener('mouseleave', () => {
+                mouseX = 0;
+                mouseY = 0;
+                if (spotlight) {
+                    spotlight.style.opacity = '0';
+                }
+            });
+        }
+
+        // Warm up audio on first user gesture
+        window.addEventListener('click', initAudio, { once: true });
+    })();
+</script>
 </body>
 
 </html>
